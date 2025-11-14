@@ -134,7 +134,7 @@ const places = [
       "Basic utility connections",
     ],
     image:
-      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/property-images/ahangama-inland-70-perches/ahangama-inland-70-perches.png",
     position: { lat: 5.973409, lng: 80.370451 },
     icon: "/pin.svg",
     concept:
