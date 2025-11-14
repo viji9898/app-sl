@@ -92,12 +92,14 @@ const places = [
   {
     id: "ahangama-31p",
     name: "31 Perch Land — Inland Ahangama",
+    brokerName: "Chandana Nanayakkara",
+    brokerNumber: "+94 77 718 5465",
     rating: 4.8,
     category: "Land for Sale",
     status: "Available",
     address: "Bandaramulla Road, Inland Ahangama, Southern Province, Sri Lanka",
-    price: "LKR 90,000,000",
-    size: "31 perches",
+    pricePerPerch: 3000000,
+    sizePerches: 31,
     zoning: "UDA Mixed-Use (G+2 permissible)",
     features: [
       "3m access road",
@@ -110,6 +112,33 @@ const places = [
     icon: "/pin.svg",
     concept:
       "Ideal for a courtyard-style mixed-use development with 3 apartments (700 sqft each) and a café spine.",
+  },
+  {
+    id: "ahangama-70p",
+    name: "70 Perch Inland Property — Ahangama",
+    brokerName: "Chandana Nanayakkara",
+    brokerNumber: "+94 77 718 5465",
+    rating: 2.0,
+    category: "Land with House",
+    status: "Not Recommended",
+    address: "Inland Ahangama, Southern Province, Sri Lanka",
+    pricePerPerch: 900000,
+    sizePerches: 70,
+    size: "70 perches",
+    zoning: "Residential / Mixed-Use (Inland)",
+    features: [
+      "Existing house on property",
+      "Narrow access roads",
+      "Limited vehicle approach",
+      "Flat inland terrain",
+      "Basic utility connections",
+    ],
+    image:
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    position: { lat: 5.973409, lng: 80.370451 },
+    icon: "/pin.svg",
+    concept:
+      "Inland property with limited access and an existing structure. Roads are narrow — not suitable for commercial or large-scale development. Best suited for small renovation or private residence.",
   },
 ];
 
@@ -197,7 +226,7 @@ function MapView() {
             <div style={styles.ratingStyle}>★ {selectedPlace.rating}</div>
             <div style={styles.categoryStyle}>{selectedPlace.category}</div>
             <div style={styles.statusStyle}>{selectedPlace.status}</div>
-            {selectedPlace.price && (
+            {selectedPlace.pricePerPerch && (
               <div
                 style={{
                   ...styles.categoryStyle,
@@ -205,11 +234,27 @@ function MapView() {
                   color: "#e74c3c",
                 }}
               >
-                {selectedPlace.price}
+                LKR {selectedPlace.pricePerPerch.toLocaleString()} per perch
               </div>
             )}
-            {selectedPlace.size && (
-              <div style={styles.categoryStyle}>Size: {selectedPlace.size}</div>
+            {selectedPlace.sizePerches && (
+              <div style={styles.categoryStyle}>
+                Size: {selectedPlace.sizePerches} perches
+              </div>
+            )}
+            {selectedPlace.pricePerPerch && selectedPlace.sizePerches && (
+              <div
+                style={{
+                  ...styles.categoryStyle,
+                  fontWeight: "bold",
+                  color: "#2c3e50",
+                }}
+              >
+                Total: LKR{" "}
+                {(
+                  selectedPlace.pricePerPerch * selectedPlace.sizePerches
+                ).toLocaleString()}
+              </div>
             )}
             {selectedPlace.zoning && (
               <div style={styles.categoryStyle}>
@@ -219,6 +264,16 @@ function MapView() {
             {selectedPlace.features && (
               <div style={styles.categoryStyle}>
                 Features: {selectedPlace.features.join(", ")}
+              </div>
+            )}
+            {selectedPlace.brokerName && (
+              <div style={{ ...styles.categoryStyle, marginTop: "10px" }}>
+                Broker: {selectedPlace.brokerName}
+              </div>
+            )}
+            {selectedPlace.brokerNumber && (
+              <div style={{ ...styles.categoryStyle, fontWeight: "bold" }}>
+                Contact: {selectedPlace.brokerNumber}
               </div>
             )}
             {selectedPlace.concept && (
