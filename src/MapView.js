@@ -102,7 +102,7 @@ const places = [
     sizePerches: 31,
     zoning: "UDA Mixed-Use (G+2 permissible)",
     features: [
-      "3m access road",
+      "main Galle Road frontage",
       "flat terrain",
       "natural drainage",
       "mature trees",
