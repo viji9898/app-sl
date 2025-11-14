@@ -86,33 +86,30 @@ const getResponsiveStyles = (isMobile) => ({
 });
 
 // Map center (Spitalfields)
-const center = { lat: 51.5194, lng: -0.0741 };
-
+const center = { lat: 5.9803969, lng: 80.358803 };
 // ✅ YOUR PLACES ARRAY GOES HERE (at the top of the file)
 const places = [
   {
-    id: "bottles",
-    name: "BOTTLES",
-    rating: 4.3,
-    category: "Italian restaurant",
-    status: "Closed until 12:00 PM",
-    address: "67 Brushfield St, London E1 6AA, United Kingdom",
-    image:
-      "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    position: { lat: 51.5192, lng: -0.074 },
+    id: "ahangama-31p",
+    name: "31 Perch Land — Inland Ahangama",
+    rating: 4.8,
+    category: "Land for Sale",
+    status: "Available",
+    address: "Bandaramulla Road, Inland Ahangama, Southern Province, Sri Lanka",
+    price: "LKR 90,000,000",
+    size: "31 perches",
+    zoning: "UDA Mixed-Use (G+2 permissible)",
+    features: [
+      "3m access road",
+      "flat terrain",
+      "natural drainage",
+      "mature trees",
+    ],
+    image: "/property-images/ahangama-31-perches/ahangama-31-perches.jpg",
+    position: { lat: 5.975029, lng: 80.356993 },
     icon: "/pin.svg",
-  },
-  {
-    id: "merchant-weaver",
-    name: "Merchant & Weaver",
-    rating: 4.6,
-    category: "Bar · Restaurant",
-    status: "Open · Closes 11:00 PM",
-    address: "8 Lamb St, London E1 6EA, United Kingdom",
-    image:
-      "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    position: { lat: 51.5198, lng: -0.0751 },
-    icon: "/pin.svg",
+    concept:
+      "Ideal for a courtyard-style mixed-use development with 3 apartments (700 sqft each) and a café spine.",
   },
 ];
 
@@ -200,17 +197,52 @@ function MapView() {
             <div style={styles.ratingStyle}>★ {selectedPlace.rating}</div>
             <div style={styles.categoryStyle}>{selectedPlace.category}</div>
             <div style={styles.statusStyle}>{selectedPlace.status}</div>
+            {selectedPlace.price && (
+              <div
+                style={{
+                  ...styles.categoryStyle,
+                  fontWeight: "bold",
+                  color: "#e74c3c",
+                }}
+              >
+                {selectedPlace.price}
+              </div>
+            )}
+            {selectedPlace.size && (
+              <div style={styles.categoryStyle}>Size: {selectedPlace.size}</div>
+            )}
+            {selectedPlace.zoning && (
+              <div style={styles.categoryStyle}>
+                Zoning: {selectedPlace.zoning}
+              </div>
+            )}
+            {selectedPlace.features && (
+              <div style={styles.categoryStyle}>
+                Features: {selectedPlace.features.join(", ")}
+              </div>
+            )}
+            {selectedPlace.concept && (
+              <div
+                style={{
+                  ...styles.addressStyle,
+                  marginTop: "10px",
+                  fontStyle: "italic",
+                }}
+              >
+                {selectedPlace.concept}
+              </div>
+            )}
             <div style={styles.addressStyle}>{selectedPlace.address}</div>
           </div>
         ) : (
           <div style={styles.placeCardStyle}>
             <h2 style={styles.titleStyle}>
-              {isMobile ? "Tap a pin" : "Select a Place"}
+              {isMobile ? "Tap a pin" : "Select a Property"}
             </h2>
             <p style={styles.categoryStyle}>
               {isMobile
-                ? "Tap on a pin to see details about the location."
-                : "Click on a pin to see details about the location."}
+                ? "Tap on a pin to see land details."
+                : "Click on a pin to see land details and pricing."}
             </p>
           </div>
         )}
