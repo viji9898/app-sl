@@ -140,6 +140,34 @@ const places = [
     concept:
       "Inland property with limited access and an existing structure. Roads are narrow — not suitable for commercial or large-scale development. Best suited for small renovation or private residence.",
   },
+  {
+    id: "ahangama-74p",
+    name: "74 Perch Elevated Colonial Property — Ahangama",
+    brokerName: "Chandana Nanayakkara",
+    brokerNumber: "+94 77 718 5465",
+    rating: 4.0,
+    category: "Land with Colonial House",
+    status: "Available",
+    address: "Inland Ahangama (near The Kip), Southern Province, Sri Lanka",
+    pricePerPerch: 1300000,
+    sizePerches: 74,
+    size: "74 perches",
+    zoning: "Residential / Mixed-Use (Inland)",
+    features: [
+      "Old colonial-style house (run down condition)",
+      "12-foot narrow road access",
+      "Elevated terrain with good drainage",
+      "Road runs around the property",
+      "Proximity to The Kip Ahangama",
+      "Scenic inland surroundings",
+    ],
+    image:
+      "/property-images/ahangama-inland-74-perches/ahangama-inland-74-perches.jpg",
+    position: { lat: 5.97073, lng: 80.374823 },
+    icon: "/pin.svg",
+    concept:
+      "Elevated inland property featuring a run-down colonial house with road frontage on multiple sides. Narrow 12-foot access road, yet located close to The Kip — ideal for restoration into a boutique villa or heritage guesthouse.",
+  },
 ];
 
 function MapView() {
