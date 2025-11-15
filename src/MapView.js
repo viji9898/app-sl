@@ -109,7 +109,7 @@ const places = [
     ],
     image: "/property-images/ahangama-31-perches/ahangama-31-perches.jpg",
     position: { lat: 5.975029, lng: 80.356993 },
-    icon: "/pin.svg",
+    icon: "/pin-green.svg",
     concept:
       "Ideal for a courtyard-style mixed-use development with 3 apartments (700 sqft each) and a café spine.",
   },
@@ -191,7 +191,7 @@ const places = [
     image:
       "/property-images/ahangama-main-road-25-perches/aghangama-main-road-frontage-25-perches.jpeg",
     position: { lat: 5.969310420491796, lng: 80.37055541311665 },
-    icon: "/pin.svg",
+    icon: "/pin-green.svg",
     concept:
       "A highly desirable inland plot located near the main Galle–Matara road with dual road frontage. Positioned close to Ahangama’s surf breaks and cafés, this elevated property is ideal for a boutique hospitality, mixed-use, or residential development.",
   },
